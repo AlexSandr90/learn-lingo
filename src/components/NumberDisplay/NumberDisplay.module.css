@@ -1,0 +1,8 @@
+.number {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 114.286%;
+    letter-spacing: -0.56px;
+
+    color: var(--primary-color);
+}
