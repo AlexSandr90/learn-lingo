@@ -1,0 +1,7 @@
+.hero {
+    display: flex;
+    width: 568px;
+    height: 530px;
+    border-radius: 30px;
+    background-color: var(--secondary-bg);
+}

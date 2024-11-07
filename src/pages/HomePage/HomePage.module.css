@@ -1,0 +1,11 @@
+.home_page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 20px;
+}
+
+.call_hero {
+    display: flex;
+    gap: 24px;
+}

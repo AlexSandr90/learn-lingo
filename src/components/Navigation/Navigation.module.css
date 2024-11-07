@@ -1,0 +1,16 @@
+.navigation {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--primary-color);
+}
+
+.active {
+    color: var(--secondary-color);
+}
