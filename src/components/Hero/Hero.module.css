@@ -4,4 +4,16 @@
     height: 530px;
     border-radius: 30px;
     background-color: var(--secondary-bg);
+    background-image: url('../../images//main-bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-device-pixel-ratio: 2),
+(min-resolution: 2dppx),
+(min-resolution: 192dpi) {
+    .hero {
+        background-image: url('../../images//main-bg@2.jpg');
+    }
 }
