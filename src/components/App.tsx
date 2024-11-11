@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import css from './App.module.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -10,19 +10,25 @@ const FavoritesPage = lazy(
 const TeachersPage = lazy(() => import('../pages/TeachersPage/TeachersPage'));
 
 const App = () => {
+  const { pathname } = useLocation();
+
+  console.log('pathname: ', pathname);
+
   return (
-    <BrowserRouter>
-      <main className={css.container}>
-        <Suspense fallback={null}>
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/teachers" element={<TeachersPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
-          </Routes>
-        </Suspense>
-      </main>
-    </BrowserRouter>
+    <main
+      className={`${css.container} ${
+        pathname === '/' ? css.main_page__bg : css.other_pages_bg
+      }`}
+    >
+      <Suspense fallback={null}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/teachers" element={<TeachersPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+        </Routes>
+      </Suspense>
+    </main>
   );
 };
 

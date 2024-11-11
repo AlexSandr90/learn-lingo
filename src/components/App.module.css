@@ -1,28 +1,27 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
-  min-width: 320px;
-  padding-left: 64px;
-  padding-right: 64px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 1440px;
+  padding: 0 64px;
+  margin: 0 auto;
+}
+
+.main_page__bg {
+  background-color: #fff;
+}
+
+.other_pages_bg {
+  background-color: var(--thirty-bg);
 }
 
 @media screen and (min-width: 768px) {
   .container {
-    min-width: 768px;
+    width: 768px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
-    min-width: 1440px;
+    width: 1440px;
   }
 }
