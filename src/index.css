@@ -13,6 +13,10 @@
   --primary-color: #121417;
   --secondary-color: #F4C550;
   --thirty-bg: #F8F8F8;
+  --gray: #8A8A89;
+  --black: #121417;
+  --white: #ffffff;
+  --like: #F4C550;
 }
 
 body {

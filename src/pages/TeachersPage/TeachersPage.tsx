@@ -1,17 +1,13 @@
 import css from './TeachersPage.module.css';
+import Filters from '../../components/Filters/Filters';
+import Teacher from '../../components/Teacher/Teacher';
 
 const TeachersPage = () => {
   return (
     <section className={css.teachers_block}>
-      <div className={css.filters}></div>
+      <Filters />
       <ul className={css.teachers_list}>
-        <li className={css.teachers_item}>
-          <div className={css.avatar}>
-            <img src="" alt="teacher icon" className={css.teacher_img} />
-          </div>
-
-          <div className={css.teachers__info}></div>
-        </li>
+        <Teacher />
       </ul>
     </section>
   );

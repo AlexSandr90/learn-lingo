@@ -14,7 +14,7 @@
   background-color: var(--thirty-bg);
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .container {
     width: 768px;
   }
@@ -24,4 +24,4 @@
   .container {
     width: 1440px;
   }
-}
+} */
