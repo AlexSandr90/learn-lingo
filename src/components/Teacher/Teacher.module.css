@@ -18,9 +18,6 @@
 }
 
 .teacher_img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 96px;
     height: 96px;
     border-radius: 50%;
@@ -35,104 +32,54 @@
     gap: 32px;
 }
 
-.teachers__info_stats {
-    display: flex;
-    gap: 149px;
-    align-items: start;
-}
-
-.teachers__info_lang {
+.teacher__conditions {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 8px;
-
+    align-items: flex-start;
 }
 
-.teacher__language {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-
-    color: var(--gray);
-}
-
-.teacher__name {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 24px;
-
-    color: var(--black);
-}
-
-.stats_block {
+.teacher,
+.teacher__list {
     display: flex;
-    align-items: center;
-    gap: 64px;
+    flex-direction: column;
 }
 
-.teachers__rates {
-    display: flex;
-    align-items: center;
+.teacher {
     gap: 16px;
 }
 
-.teacher__rates_item {
-    display: flex;
-}
-
-.icon_item {
+.teacher__list {
     gap: 8px;
 }
 
-.svg_icon {
+.teacher__item {
     display: flex;
-    align-self: center;
-    width: 16px;
-    height: 16px;
+    gap: 4px;
 }
 
-.book {
-    fill: var(--white);
-    stroke: var(--black);
-}
-
-.label {
+.item__key,
+.item__value {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
+}
 
+.item__key {
+    color: var(--gray);
+}
+
+.item__value {
     color: var(--black);
 }
 
-.price {
+.item__underscore {
+    text-decoration: underline;
+}
+
+.teacher__cover_text {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
-
-    color: #38CD3E;
-}
-
-.heart {
-    display: flex;
-    width: 22.645px;
-    height: 19.751px;
-    stroke-width: 2px;
-    cursor: pointer;
-}
-
-.heart_like {
-    stroke: var(--white);
-    fill: var(--like);
-}
-
-.heart_regular {
-    stroke: var(--black);
-    fill: var(--white);
-}
-
-.teacher__info_block {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    text-align: left;
+    color: var(--black);
 }

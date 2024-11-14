@@ -1,5 +1,6 @@
 import css from './Teacher.module.css';
 import icons from '../../images/icons.svg';
+import TeacherRates from '../TeacherRates/TeacherRates';
 
 const Teacher = () => {
   return (
@@ -9,70 +10,34 @@ const Teacher = () => {
       </div>
 
       <div className={css.teachers__info}>
-        <div className={css.teachers__info_stats}>
-          <div className={css.teachers__info_lang}>
-            <span className={css.teacher__language}>Languages</span>
-            <span className={css.teacher__name}>Jane Smith</span>
-          </div>
+        <TeacherRates />
 
-          <div className={css.stats_block}>
-            <ul className={css.teachers__rates}>
-              <li className={`${css.teacher__rates_item} ${css.icon_item}`}>
-                <svg className={`${css.svg_icon} ${css.book}`}>
-                  <use href={`${icons}#book-open`} />
-                </svg>
-
-                <span className={css.label}>Lessons online</span>
+        <div className={css.teacher__conditions}>
+          <div className={css.teacher}>
+            <ul className={css.teacher__list}>
+              <li className={css.teacher__item}>
+                <span className={css.item__key}>Speaks: </span>
+                <span className={`${css.item__value} ${css.item__underscore}`}>
+                  German, French
+                </span>
               </li>
-
-              <li className={css.teacher__rates_item}>
-                <span className={css.label}>Lessons done: 1098</span>
+              <li className={css.teacher__item}>
+                <span className={css.item__key}>Lesson Info: </span>
+                <span className={css.item__value}>
+                  Lessons are structured to cover grammar, vocabulary, and
+                  practical usage of the language.
+                </span>
               </li>
-
-              <li className={`${css.teacher__rates_item} ${css.icon_item}`}>
-                <svg className={css.svg_icon}>
-                  <use href={`${icons}#star`} />
-                </svg>
-
-                <span className={css.label}>Rating: 4.8</span>
-              </li>
-
-              <li className={css.teacher__rates_item}>
-                <span className={css.label}>
-                  Price / 1 hour: <span className={css.price}>30$</span>
+              <li className={css.teacher__item}>
+                <span className={css.item__key}>Conditions: </span>
+                <span className={css.item__value}>
+                  Welcomes both adult learners and teenagers (13 years and
+                  above).Provides personalized study plans
                 </span>
               </li>
             </ul>
 
-            <svg className={`${css.heart} ${css.heart_regular}`}>
-              <use href={`${icons}#heart`} />
-            </svg>
-          </div>
-        </div>
-
-        <div className={css.teacher__info_block}>
-          <ul className={css.teacher}>
-            <li className={css.teacher__item}>
-              <span className={css.item__key}>Speaks: </span>
-              <span className={`${css.item__value} ${css.item__underscore}`}>
-                German, French
-              </span>
-            </li>
-            <li className={css.teacher__item}>
-              <span className={css.item__key}>Lesson Info: </span>
-              <span className={css.item__value}>
-                Lessons are structured to cover grammar, vocabulary, and
-                practical usage of the language.
-              </span>
-            </li>
-            <li className={css.teacher__item}>
-              <span className={css.item__key}>Conditions: </span>
-              <span className={css.item__value}>
-                Welcomes both adult learners and teenagers (13 years and
-                above).Provides personalized study plans
-              </span>
-            </li>
-            <li className={`${css.teacher__item} ${css.font}`}>
+            <p className={css.teacher__cover_text}>
               Jane is an experienced and dedicated language teacher specializing
               in German and French. She holds a Bachelor's degree in German
               Studies and a Master's degree in French Literature. Her passion
@@ -83,8 +48,9 @@ const Teacher = () => {
               goals. She is skilled at adapting her teaching methods to suit the
               needs and learning styles of her students, ensuring that they feel
               supported and motivated throughout their language journey.
-            </li>
-          </ul>
+            </p>
+          </div>
+
           <ul className={css.reviews__block}>
             <li className={css.reviews__item}>
               <div className={css.rate__name_block}>

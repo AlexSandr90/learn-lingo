@@ -1,0 +1,101 @@
+.teachers__info_stats {
+    display: flex;
+    gap: 149px;
+    align-items: start;
+}
+
+.teachers__info_lang {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+
+}
+
+.teacher__language {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+
+    color: var(--gray);
+}
+
+.teacher__name {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+
+    color: var(--black);
+}
+
+.stats_block {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.teachers__rates {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.teacher__rates_item {
+    display: flex;
+}
+
+.icon_item {
+    gap: 8px;
+}
+
+.svg_icon {
+    display: flex;
+    align-self: center;
+    width: 16px;
+    height: 16px;
+}
+
+.book {
+    fill: var(--white);
+    stroke: var(--black);
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    color: var(--black);
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    color: #38CD3E;
+}
+
+.heart {
+    display: flex;
+    width: 22.645px;
+    height: 19.751px;
+    stroke-width: 2px;
+    cursor: pointer;
+}
+
+.heart_like {
+    stroke: var(--white);
+    fill: var(--like);
+}
+
+.heart_regular {
+    stroke: var(--black);
+    fill: var(--white);
+}
+
+.teacher__info_block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
