@@ -1,0 +1,29 @@
+.langLevel {
+  display: flex;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 35px;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 114.286%;
+
+  color: var(--black);
+
+  transition: border-color ease-in-out 300ms, color ease-in-out 300ms;
+
+  &:hover {
+    border-color: rgba(18, 20, 23, 0.8);
+    color: var(--gray);
+  }
+
+  &_first {
+    border-radius: 35px;
+    background: #f4c550;
+    border: none;
+  }
+}

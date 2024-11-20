@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
@@ -6,17 +10,16 @@
   color-scheme: light dark;
   color: #000000;
 
-
-  --main-bg: #F4C550;
-  --hover-bg: #FFDC86;
-  --secondary-bg: #FBE9BA;
+  --main-bg: #f4c550;
+  --hover-bg: #ffdc86;
+  --secondary-bg: #fbe9ba;
   --primary-color: #121417;
-  --secondary-color: #F4C550;
-  --thirty-bg: #F8F8F8;
-  --gray: #8A8A89;
+  --secondary-color: #f4c550;
+  --thirty-bg: #f8f8f8;
+  --gray: #8a8a89;
   --black: #121417;
   --white: #ffffff;
-  --like: #F4C550;
+  --like: #f4c550;
 }
 
 body {

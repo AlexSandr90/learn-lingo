@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchTeachers } from './operations';
-import { Teacher } from '../../types/teacher';
+import { TeacherTypes } from '../../types/teacher';
 
 interface TeachersStateTypes {
-  list: Teacher[];
+  list: TeacherTypes[];
   loading: boolean;
   error: boolean | null;
 }

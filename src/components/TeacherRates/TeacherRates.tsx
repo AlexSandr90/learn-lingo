@@ -1,12 +1,28 @@
 import icons from '../../images/icons.svg';
 import css from './TeacherRates.module.css';
 
-const TeacherRates = () => {
+interface TeacherRatesProps {
+  rating: number;
+  name: string;
+  surname: string;
+  lessonsDone: number;
+  price: number;
+}
+
+const TeacherRates: React.FC<TeacherRatesProps> = ({
+  name,
+  price,
+  rating,
+  surname,
+  lessonsDone,
+}) => {
   return (
     <div className={css.teachers__info_stats}>
       <div className={css.teachers__info_lang}>
         <span className={css.teacher__language}>Languages</span>
-        <span className={css.teacher__name}>Jane Smith</span>
+        <span className={css.teacher__name}>
+          {name} {surname}
+        </span>
       </div>
 
       <div className={css.stats_block}>
@@ -20,7 +36,7 @@ const TeacherRates = () => {
           </li>
 
           <li className={css.teacher__rates_item}>
-            <span className={css.label}>Lessons done: 1098</span>
+            <span className={css.label}>Lessons done: {lessonsDone}</span>
           </li>
 
           <li className={`${css.teacher__rates_item} ${css.icon_item}`}>
@@ -28,12 +44,12 @@ const TeacherRates = () => {
               <use href={`${icons}#star`} />
             </svg>
 
-            <span className={css.label}>Rating: 4.8</span>
+            <span className={css.label}>Rating: {rating}</span>
           </li>
 
           <li className={css.teacher__rates_item}>
             <span className={css.label}>
-              Price / 1 hour: <span className={css.price}>30$</span>
+              Price / 1 hour: <span className={css.price}>{price}$</span>
             </span>
           </li>
         </ul>

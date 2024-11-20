@@ -1,8 +1,9 @@
 import css from './Teacher.module.css';
 import icons from '../../images/icons.svg';
 import TeacherRates from '../TeacherRates/TeacherRates';
+import { TeacherTypes } from '../../types/teacher';
 
-const Teacher = () => {
+const Teacher: React.FC<TeacherTypes> = () => {
   return (
     <li className={css.teachers_item}>
       <div className={css.avatar}>
@@ -54,7 +55,7 @@ const Teacher = () => {
           <ul className={css.reviews__block}>
             <li className={css.reviews__item}>
               <div className={css.rate__name_block}>
-                <img src="" alt="" />
+                <img src="" alt="" className={css.review__icon} />
                 <div className={css.rate__name}>
                   <span className={css.name}>Frank</span>
                   <div className={css.rate}>
@@ -69,9 +70,14 @@ const Teacher = () => {
                 Jane's lessons were very helpful. I made good progress.
               </p>
             </li>
-            <li className={css.reviews__item}></li>
           </ul>
-          <div className={css.lang__levels}></div>
+
+          <ul className={css.lang__levels}>
+            <li className={css.lang__levels_item}>
+
+            </li>
+          </ul>
+          
           <div className={css.button}></div>
         </div>
 

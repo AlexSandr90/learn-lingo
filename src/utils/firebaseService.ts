@@ -1,6 +1,6 @@
 import { child, DatabaseReference, get, ref, set } from 'firebase/database';
 import { database } from './firebase';
-import { Teacher } from '../types/teacher';
+import { TeacherTypes } from '../types/teacher';
 
 export const saveTeacher = async (
   id: string,
@@ -11,7 +11,7 @@ export const saveTeacher = async (
 
 export const getTeachers = async (): Promise<Record<
   string,
-  Teacher
+  TeacherTypes
 > | null> => {
   const dbRef: DatabaseReference = ref(database);
   const snapshot = await get(child(dbRef, 'teachers'));

@@ -83,3 +83,83 @@
     text-align: left;
     color: var(--black);
 }
+
+
+.reviews__block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+
+.reviews__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 12px;
+}
+
+.rate__name_block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.review__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    background-color: var(--gray);
+}
+
+.rate__name {
+    flex-direction: column;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    color: var(--gray);
+}
+
+.rate {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 128.571%;
+
+    color: var(--black);
+}
+
+.svg_icon {
+    display: flex;
+    align-self: center;
+    width: 16px;
+    height: 16px;
+}
+
+.review {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    color: var(--black);
+}
+
+.lang__levels {
+    display: flex;
+}
+
+.lang__levels_item {
+    
+}
+
+.button {}
+
+.teachers__lang_level {}
