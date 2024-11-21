@@ -1,8 +1,0 @@
-.teachers_block {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    width: 1440px;
-    padding: 96px calc(128px - 64px);
-    background-color: #ffffff;
-}
