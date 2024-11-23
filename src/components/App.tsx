@@ -12,8 +12,6 @@ const TeachersPage = lazy(() => import('../pages/TeachersPage/TeachersPage'));
 const App = () => {
   const { pathname } = useLocation();
 
-  console.log('pathname: ', pathname);
-
   return (
     <main
       className={`${css.container} ${

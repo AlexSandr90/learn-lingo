@@ -7,6 +7,11 @@ const schema = yup.object().shape({
   password: yup.string().min(6).required(),
 });
 
+interface RegisterData {
+  email: string;
+  password: string;
+}
+
 const RegisterForm = () => {
   const {
     register,
@@ -14,11 +19,21 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: RegisterData) => {
     console.log('data: ', data);
   };
 
-  return <div>RegisterForm</div>;
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('email', { required: 'Email is required' })} />
+      {errors.email && <span>{errors.email.message}</span>}
+
+      <input {...register('password', { required: 'Password is required' })} />
+      {errors.password && <span>{errors.password.message}</span>}
+
+      <button type="submit">Submit</button>
+    </form>
+  );
 };
 
 export default RegisterForm;
