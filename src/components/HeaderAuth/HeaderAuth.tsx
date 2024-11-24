@@ -1,7 +1,7 @@
 import css from './HeaderAuth.module.scss';
 import icons from '../../images/icons.svg';
 import Button from '../Button/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import RegisterForm from '../Form/RegisterForm';
 import LoginForm from '../Form/LoginForm';
@@ -9,6 +9,11 @@ import LoginForm from '../Form/LoginForm';
 const HeaderAuth = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
+  useEffect(() => {
+    console.log('isOpen: ', isRegisterModalOpen);
+  }, [isRegisterModalOpen]);
+
   return (
     <div className={css.auth}>
       <Button
@@ -49,7 +54,10 @@ const HeaderAuth = () => {
             we need some information. Please provide us with the following
             information
           </p>
-          <RegisterForm />
+          <RegisterForm
+            setIsRegisterModalOpen={setIsRegisterModalOpen}
+            isLoginModalOpen={isLoginModalOpen}
+          />
         </div>
       </Modal>
     </div>

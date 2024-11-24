@@ -57,6 +57,8 @@ const LoginForm = () => {
       <Button type="submit" className={css.button}>
         Log In
       </Button>
+
+      <Button onClick={handleResetPassword}>Reset password</Button>
     </form>
   );
 };
