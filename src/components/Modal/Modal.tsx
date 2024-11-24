@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, setState }) => {
       isOpen={isOpen}
       overlayClassName={css.overlay}
       className={css.modal}
-      shouldCloseOnOverlayClick={false}
+      shouldCloseOnOverlayClick={true}
       onRequestClose={() => setState(false)}
       ariaHideApp={false}
     >
