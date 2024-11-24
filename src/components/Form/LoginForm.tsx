@@ -39,14 +39,6 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
       <input
-        {...register('name', { required: 'Name is required' })}
-        type="input"
-        placeholder="Name"
-        className={css.input}
-      />
-      {errors.email && <span>{errors.email.message}</span>}
-
-      <input
         {...register('email', { required: 'Email is required' })}
         type="input"
         placeholder="Email"
