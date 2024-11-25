@@ -2,7 +2,6 @@ import css from './HeaderAuth.module.scss';
 import icons from '../../images/icons.svg';
 import Button from '../Button/Button';
 import { useEffect, useState } from 'react';
-import Modal from '../Modal/Modal';
 import RegisterForm from '../Form/RegisterForm';
 import LoginForm from '../Form/LoginForm';
 
@@ -27,16 +26,10 @@ const HeaderAuth = () => {
         Log in
       </Button>
 
-      <Modal isOpen={isLoginModalOpen} setState={setIsLoginModalOpen}>
-        <div className={css.formWrap}>
-          <h2>Log In</h2>
-          <p>
-            Welcome back! Please enter your credentials to access your account
-            and continue your search for an teacher.
-          </p>
-          <LoginForm />
-        </div>
-      </Modal>
+      <LoginForm
+        isModalOpen={isLoginModalOpen}
+        setModalState={setIsLoginModalOpen}
+      />
 
       <Button
         className={css.register}
@@ -46,20 +39,10 @@ const HeaderAuth = () => {
         Registration
       </Button>
 
-      <Modal isOpen={isRegisterModalOpen} setState={setIsRegisterModalOpen}>
-        <div className={css.formWrap}>
-          <h2>Registration</h2>
-          <p>
-            Thank you for your interest in our platform! In order to register,
-            we need some information. Please provide us with the following
-            information
-          </p>
-          <RegisterForm
-            setIsRegisterModalOpen={setIsRegisterModalOpen}
-            isLoginModalOpen={isLoginModalOpen}
-          />
-        </div>
-      </Modal>
+      <RegisterForm
+        isModalOpen={isRegisterModalOpen}
+        setModalState={setIsRegisterModalOpen}
+      />
     </div>
   );
 };

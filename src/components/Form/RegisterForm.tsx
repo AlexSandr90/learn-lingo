@@ -1,26 +1,14 @@
-import css from './Form.module.scss';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Button from '../Button/Button';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, database } from '../../utils/firebase';
 import { ref, set } from 'firebase/database';
 
-const schema = yup.object().shape({
-  name: yup
-    .string()
-    .min(3, 'Name must be at least 6 characters')
-    .required('Name is required'),
-  email: yup
-    .string()
-    .email('Invalid email address')
-    .required('Email is required'),
-  password: yup
-    .string()
-    .min(6, 'Password must be at least 6 characters')
-    .required('Password is required'),
-});
+import css from './Form.module.scss';
+import Modal from '../Modal/Modal';
+import Button from '../Button/Button';
+import { auth, database } from '../../utils/firebase';
+import { registerSchema } from '../../validation/authSchemes';
+import { ModalTriggerProps } from '../../types/modalTriggerTypes';
 
 interface RegisterData {
   name: string;
@@ -28,23 +16,18 @@ interface RegisterData {
   password: string;
 }
 
-interface RegisterProps {
-  setIsRegisterModalOpen: (isOpen: boolean) => void;
-  isLoginModalOpen: boolean;
-}
-
-const RegisterForm: React.FC<RegisterProps> = ({
-  setIsRegisterModalOpen,
-  isLoginModalOpen,
+const RegisterForm: React.FC<ModalTriggerProps> = ({
+  isModalOpen,
+  setModalState,
 }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<RegisterData>({ resolver: yupResolver(schema) });
+  } = useForm<RegisterData>({ resolver: yupResolver(registerSchema) });
 
-  console.log('isLoginModalOpen: ', isLoginModalOpen);
+  console.log('isRegisterModalOpen: ', isModalOpen);
 
   const onSubmit = async (data: RegisterData) => {
     try {
@@ -67,45 +50,55 @@ const RegisterForm: React.FC<RegisterProps> = ({
 
       await Promise.race([saveData, timeout]);
 
-      setIsRegisterModalOpen(false);
+      setModalState(false);
     } catch (error) {
       console.error('Error registration user: ', error);
     } finally {
       reset();
-      setIsRegisterModalOpen(false);
+      setModalState(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
-      <input
-        {...register('name', { required: 'Name is required' })}
-        type="input"
-        placeholder="Name"
-        className={css.input}
-      />
-      {errors.email && <span>{errors.email.message}</span>}
+    <Modal isOpen={isModalOpen} setState={setModalState}>
+      <div className={css.formWrap}>
+        <h2>Registration</h2>
+        <p>
+          Thank you for your interest in our platform! In order to register, we
+          need some information. Please provide us with the following
+          information
+        </p>
+        <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+          <input
+            {...register('name', { required: 'Name is required' })}
+            type="input"
+            placeholder="Name"
+            className={css.input}
+          />
+          {errors.email && <span>{errors.email.message}</span>}
 
-      <input
-        {...register('email', { required: 'Email is required' })}
-        type="input"
-        placeholder="Email"
-        className={css.input}
-      />
-      {errors.email && <span>{errors.email.message}</span>}
+          <input
+            {...register('email', { required: 'Email is required' })}
+            type="input"
+            placeholder="Email"
+            className={css.input}
+          />
+          {errors.email && <span>{errors.email.message}</span>}
 
-      <input
-        {...register('password', { required: 'Password is required' })}
-        type="password"
-        placeholder="Password"
-        className={css.input}
-      />
-      {errors.password && <span>{errors.password.message}</span>}
+          <input
+            {...register('password', { required: 'Password is required' })}
+            type="password"
+            placeholder="Password"
+            className={css.input}
+          />
+          {errors.password && <span>{errors.password.message}</span>}
 
-      <Button type="submit" className={css.button}>
-        Submit
-      </Button>
-    </form>
+          <Button type="submit" className={css.button}>
+            Submit
+          </Button>
+        </form>
+      </div>
+    </Modal>
   );
 };
 
