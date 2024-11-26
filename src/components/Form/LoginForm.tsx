@@ -5,6 +5,8 @@ import Button from '../Button/Button';
 import { loginSchema } from '../../validation/authSchemes';
 import Modal from '../Modal/Modal';
 import { ModalTriggerProps } from '../../types/modalTriggerTypes';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../utils/firebase';
 
 interface LoginData {
   email: string;
@@ -22,13 +24,22 @@ const LoginForm: React.FC<ModalTriggerProps> = ({
   } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
 
   const onSubmit = async (data: LoginData) => {
-    console.log('Login data:', data);
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      const user = userCredential.user;
+      console.log('user logged in: ', user);
+      setModalState(false);
+    } catch (error) {
+      console.log('Login error', error);
+    }
   };
 
-  const handleResetPassword = () => {
-    console.log('Reset password clicked');
-    // Тут можна додати функціонал для скидання пароля
-  };
+  const handleResetPassword = () => {};
 
   return (
     <Modal isOpen={isModalOpen} setState={setModalState}>

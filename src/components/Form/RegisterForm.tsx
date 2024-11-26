@@ -27,8 +27,6 @@ const RegisterForm: React.FC<ModalTriggerProps> = ({
     reset,
   } = useForm<RegisterData>({ resolver: yupResolver(registerSchema) });
 
-  console.log('isRegisterModalOpen: ', isModalOpen);
-
   const onSubmit = async (data: RegisterData) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -45,7 +43,7 @@ const RegisterForm: React.FC<ModalTriggerProps> = ({
       });
 
       const timeout = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('Timeout error')), 3000)
+        setTimeout(() => reject(new Error('Timeout error')), 1500)
       );
 
       await Promise.race([saveData, timeout]);

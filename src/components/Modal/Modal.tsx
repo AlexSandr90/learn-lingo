@@ -1,11 +1,12 @@
 import css from './Modal.module.scss';
 import ReactModal from 'react-modal';
 import icons from '../../images/icons.svg';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 
 interface ModalProps {
-  children: React.ReactNode;
+  children: ReactNode;
   isOpen: boolean;
-  setState: React.Dispatch<React.SetStateAction<boolean>>;
+  setState: Dispatch<SetStateAction<boolean>>;
 }
 
 const Modal: React.FC<ModalProps> = ({ children, isOpen, setState }) => {
