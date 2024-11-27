@@ -10,6 +10,12 @@ interface BookTrialData {
   name: string;
   email: string;
   phone: string;
+  reason:
+    | 'Career and business'
+    | 'Lesson for kids'
+    | 'Living abroad'
+    | 'Exams and coursework'
+    | 'Culture, travel or hobby';
 }
 
 const BookTrialLessonForm: React.FC<ModalTriggerProps> = ({
@@ -26,13 +32,62 @@ const BookTrialLessonForm: React.FC<ModalTriggerProps> = ({
     <Modal isOpen={isModalOpen} setState={setModalState}>
       <div className={css.formWrap}>
         <h2>Book trial lesson</h2>
-        <p>
+        <p className={css.bookParagraph}>
           Our experienced tutor will assess your current language level, discuss
           your learning goals, and tailor the lesson to your specific needs.
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+        <div className={css.radioGroup}>
+          <label className={css.radioLabel}>
+            <input
+              {...register('reason', { required: 'Reason is required' })}
+              type="radio"
+              value="Career and business"
+              className={css.radioInput}
+            />
+            <span className={css.radioText}>Career and business</span>
+          </label>
+          <label className={css.radioLabel}>
+            <input
+              {...register('reason', { required: 'Reason is required' })}
+              type="radio"
+              value="Lesson for kids"
+              className={css.radioInput}
+            />
+            <span className={css.radioText}>Lesson for kids</span>
+          </label>
+          <label className={css.radioLabel}>
+            <input
+              {...register('reason', { required: 'Reason is required' })}
+              type="radio"
+              value="Living abroad"
+              className={css.radioInput}
+            />
+            <span className={css.radioText}>Living abroad</span>
+          </label>
+          <label className={css.radioLabel}>
+            <input
+              {...register('reason', { required: 'Reason is required' })}
+              type="radio"
+              value="Exams and coursework"
+              className={css.radioInput}
+            />
+            <span className={css.radioText}>Exams and coursework</span>
+          </label>
+          <label className={css.radioLabel}>
+            <input
+              {...register('reason', { required: 'Reason is required' })}
+              type="radio"
+              value="Culture, travel or hobby"
+              className={css.radioInput}
+            />
+            <span className={css.radioText}>Culture, travel or hobby</span>
+          </label>
+        </div>
+        {errors.reason && <span>{errors.reason.message}</span>}
+
         <input
           {...register('name', { required: 'Name is required' })}
           type="input"
