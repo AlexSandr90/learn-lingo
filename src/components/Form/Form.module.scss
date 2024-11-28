@@ -132,3 +132,36 @@ p.bookParagraph {
   line-height: 137.5%;
   color: var(--black);
 }
+
+.teacher {
+  display: flex;
+  gap: 14px;
+}
+
+.teacherImg {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--gray);
+}
+
+.teacherInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.teacherLabel {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 133.333%;
+
+  color: var(--gray);
+}
+
+.teacherName {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  color: var(--black);
+}

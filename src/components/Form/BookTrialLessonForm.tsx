@@ -18,7 +18,14 @@ interface BookTrialData {
     | 'Culture, travel or hobby';
 }
 
-const BookTrialLessonForm: React.FC<ModalTriggerProps> = ({
+interface ModalTeacherProps {
+  avatarUrl: string;
+  fullName: string;
+}
+
+const BookTrialLessonForm: React.FC<ModalTriggerProps & ModalTeacherProps> = ({
+  fullName,
+  avatarUrl,
   isModalOpen,
   setModalState,
 }) => {
@@ -36,6 +43,14 @@ const BookTrialLessonForm: React.FC<ModalTriggerProps> = ({
           Our experienced tutor will assess your current language level, discuss
           your learning goals, and tailor the lesson to your specific needs.
         </p>
+      </div>
+
+      <div className={css.teacher}>
+        <img src={avatarUrl} alt={fullName} className={css.teacherImg} />
+        <div className={css.teacherInfo}>
+          <span className={css.teacherLabel}>Your teacher</span>
+          <span className={css.teacherName}>{fullName}</span>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>

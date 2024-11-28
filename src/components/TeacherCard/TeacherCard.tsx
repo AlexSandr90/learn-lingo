@@ -63,6 +63,8 @@ const TeacherCard: React.FC<TeacherTypes> = ({
           </Button>
 
           <BookTrialLessonForm
+            fullName={`${name} ${surname}`}
+            avatarUrl={avatar_url}
             isModalOpen={isBookModalOpen}
             setModalState={setIsBookModalOpen}
           />
