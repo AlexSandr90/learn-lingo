@@ -62,12 +62,14 @@ const TeacherCard: React.FC<TeacherTypes> = ({
             Book trial lesson
           </Button>
 
-          <BookTrialLessonForm
-            fullName={`${name} ${surname}`}
-            avatarUrl={avatar_url}
-            isModalOpen={isBookModalOpen}
-            setModalState={setIsBookModalOpen}
-          />
+          {isBookModalOpen && (
+            <BookTrialLessonForm
+              fullName={`${name} ${surname}`}
+              avatarUrl={avatar_url}
+              isModalOpen={isBookModalOpen}
+              setModalState={setIsBookModalOpen}
+            />
+          )}
         </div>
       </div>
     </li>

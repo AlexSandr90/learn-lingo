@@ -3,6 +3,8 @@ import ReactModal from 'react-modal';
 import icons from '../../images/icons.svg';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 
+ReactModal.setAppElement('#root');
+
 interface ModalProps {
   children: ReactNode;
   isOpen: boolean;

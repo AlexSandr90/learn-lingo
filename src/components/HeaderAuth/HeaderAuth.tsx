@@ -26,10 +26,12 @@ const HeaderAuth = () => {
         Log in
       </Button>
 
-      <LoginForm
-        isModalOpen={isLoginModalOpen}
-        setModalState={setIsLoginModalOpen}
-      />
+      {isLoginModalOpen && (
+        <LoginForm
+          isModalOpen={isLoginModalOpen}
+          setModalState={setIsLoginModalOpen}
+        />
+      )}
 
       <Button
         className={css.register}
@@ -39,10 +41,12 @@ const HeaderAuth = () => {
         Registration
       </Button>
 
-      <RegisterForm
-        isModalOpen={isRegisterModalOpen}
-        setModalState={setIsRegisterModalOpen}
-      />
+      {isRegisterModalOpen && (
+        <RegisterForm
+          isModalOpen={isRegisterModalOpen}
+          setModalState={setIsRegisterModalOpen}
+        />
+      )}
     </div>
   );
 };
