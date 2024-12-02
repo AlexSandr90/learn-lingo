@@ -5,6 +5,8 @@ import css from './Form.module.scss';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { bookTrialSchema } from '../../validation/authSchemes';
 import Button from '../Button/Button';
+import { saveBooking } from '../../services/firebaseService';
+import { useState } from 'react';
 
 interface BookTrialData {
   name: string;
@@ -29,12 +31,40 @@ const BookTrialLessonForm: React.FC<ModalTriggerProps & ModalTeacherProps> = ({
   isModalOpen,
   setModalState,
 }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<BookTrialData>({ resolver: yupResolver(bookTrialSchema) });
-  const onSubmit = () => {};
+
+  const onSubmit = async (data: BookTrialData) => {
+    setIsSubmitting(true);
+    const bookingData = {
+      ...data,
+      teacher: { fullName, avatarUrl },
+      createdAt: new Date().toISOString(),
+    };
+    console.log('bookingData: ', bookingData);
+
+    const bookingId = `${fullName} ${Date.now()}`;
+
+    saveBooking(bookingId, bookingData)
+      .then(() => {
+        console.log('Booking saved successfully');
+        setModalState(false);
+      })
+      .catch((error) => {
+        console.error('Error during booking process:', error);
+        setIsSubmitting(false);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+
+    console.log('first');
+  };
+
   return (
     <Modal isOpen={isModalOpen} setState={setModalState}>
       <div className={css.formWrap}>
@@ -127,8 +157,8 @@ const BookTrialLessonForm: React.FC<ModalTriggerProps & ModalTeacherProps> = ({
         />
         {errors.phone && <span>{errors.phone.message}</span>}
 
-        <Button type="submit" className={css.button}>
-          Book
+        <Button type="submit" disabled={isSubmitting} className={css.button}>
+          {isSubmitting ? 'Booking...' : 'Book'}
         </Button>
       </form>
     </Modal>

@@ -6,7 +6,7 @@ import { ref, set } from 'firebase/database';
 import css from './Form.module.scss';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
-import { auth, database } from '../../utils/firebase';
+import { auth, database } from '../../services/firebase';
 import { registerSchema } from '../../validation/authSchemes';
 import { ModalTriggerProps } from '../../types/modalTriggerTypes';
 

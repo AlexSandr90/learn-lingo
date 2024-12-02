@@ -12,6 +12,8 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ children, isOpen, setState }) => {
+  if (!isOpen) return null;
+  
   return (
     <ReactModal
       isOpen={isOpen}

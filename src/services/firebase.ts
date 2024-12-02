@@ -10,6 +10,8 @@ const firebaseConfig = {
   messagingSenderId: '168383962098',
   appId: '1:168383962098:web:cf7a8a73db4e30f02ce96b',
   measurementId: 'G-2H9SHBG1TP',
+  databaseURL:
+    'https://learn-lingo-38318-default-rtdb.europe-west1.firebasedatabase.app/',
 };
 
 const app = initializeApp(firebaseConfig);

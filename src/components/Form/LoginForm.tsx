@@ -6,7 +6,7 @@ import { loginSchema } from '../../validation/authSchemes';
 import Modal from '../Modal/Modal';
 import { ModalTriggerProps } from '../../types/modalTriggerTypes';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../utils/firebase';
+import { auth } from '../../services/firebase';
 
 interface LoginData {
   email: string;

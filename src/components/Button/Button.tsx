@@ -6,17 +6,20 @@ const Button = ({
   onClick,
   ariaLabel,
   type = 'button',
+  disabled = false,
 }: {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
   ariaLabel?: string;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }) => {
   return (
     <button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`${css.button} ${className ? className : ''}`}
       aria-label={ariaLabel ? ariaLabel : 'button'}
     >
