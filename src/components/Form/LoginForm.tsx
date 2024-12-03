@@ -7,6 +7,8 @@ import Modal from '../Modal/Modal';
 import { ModalTriggerProps } from '../../types/modalTriggerTypes';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase';
+import { useDispatch } from 'react-redux';
+import { setTokens } from '../../redux/auth/slice';
 
 interface LoginData {
   email: string;
@@ -23,6 +25,8 @@ const LoginForm: React.FC<ModalTriggerProps> = ({
     formState: { errors },
   } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
 
+  const dispatch = useDispatch();
+
   const onSubmit = async (data: LoginData) => {
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -32,6 +36,10 @@ const LoginForm: React.FC<ModalTriggerProps> = ({
       );
 
       const user = userCredential.user;
+      const idToken = await user.getIdToken();
+      const refreshToken = user.refreshToken;
+
+      dispatch(setTokens({ accessToken: idToken, refreshToken }));
       console.log('user logged in: ', user);
       setModalState(false);
     } catch (error) {
