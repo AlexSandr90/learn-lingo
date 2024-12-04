@@ -1,21 +1,24 @@
 import icons from '../../images/icons.svg';
-import css from './TeacherRates.module.css';
+import { toggleFavorite } from '../../redux/favorites/operations';
+import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
+import { TeacherTypes } from '../../types/teacher';
+import css from './TeacherRates.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
 
-interface TeacherRatesProps {
-  rating: number;
-  name: string;
-  surname: string;
-  lessonsDone: number;
-  price: number;
-}
+const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
+  const { name, surname, lessons_done, rating, price_per_hour } = teacher;
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavoritesTeachers);
+  const uniqueKey = `${name}_${surname}`;
 
-const TeacherRates: React.FC<TeacherRatesProps> = ({
-  name,
-  price,
-  rating,
-  surname,
-  lessonsDone,
-}) => {
+  const isFavorite = favorites.some(
+    (teacherItem) => `${teacherItem.name}_${teacherItem.surname}` === uniqueKey
+  );
+
+  const handleFavoritesClick = () => {
+    dispatch(toggleFavorite(teacher));
+  };
+
   return (
     <div className={css.teachers__info_stats}>
       <div className={css.teachers__info_lang}>
@@ -36,7 +39,7 @@ const TeacherRates: React.FC<TeacherRatesProps> = ({
           </li>
 
           <li className={css.teacher__rates_item}>
-            <span className={css.label}>Lessons done: {lessonsDone}</span>
+            <span className={css.label}>Lessons done: {lessons_done}</span>
           </li>
 
           <li className={`${css.teacher__rates_item} ${css.icon_item}`}>
@@ -49,12 +52,18 @@ const TeacherRates: React.FC<TeacherRatesProps> = ({
 
           <li className={css.teacher__rates_item}>
             <span className={css.label}>
-              Price / 1 hour: <span className={css.price}>{price}$</span>
+              Price / 1 hour:{' '}
+              <span className={css.price}>{price_per_hour}$</span>
             </span>
           </li>
         </ul>
 
-        <svg className={`${css.heart} ${css.heart_regular}`}>
+        <svg
+          className={`${css.heart} ${
+            isFavorite ? css.heart_like : css.heart_regular
+          }`}
+          onClick={handleFavoritesClick}
+        >
           <use href={`${icons}#heart`} />
         </svg>
       </div>

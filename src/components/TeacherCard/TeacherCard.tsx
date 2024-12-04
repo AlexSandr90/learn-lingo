@@ -8,20 +8,21 @@ import TeacherList from '../TeacherList/TeacherList';
 import Button from '../Button/Button';
 import BookTrialLessonForm from '../Form/BookTrialLessonForm';
 
-const TeacherCard: React.FC<TeacherTypes> = ({
-  name,
-  rating,
-  levels,
-  surname,
-  reviews,
-  languages,
-  conditions,
-  avatar_url,
-  experience,
-  lesson_info,
-  price_per_hour,
-  lessons_done,
-}) => {
+const TeacherCard: React.FC<TeacherTypes> = (teacher) => {
+  const {
+    name,
+    rating,
+    levels,
+    surname,
+    reviews,
+    languages,
+    conditions,
+    avatar_url,
+    experience,
+    lesson_info,
+    price_per_hour,
+    lessons_done,
+  } = teacher;
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
 
   const handleBook = () => {
