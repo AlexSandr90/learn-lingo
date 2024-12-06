@@ -19,6 +19,11 @@ const Navigation = () => {
           Teachers
         </NavLink>
       </li>
+      <li>
+      <NavLink className={getClassName} to={'/favorites'}>
+          Favorite
+        </NavLink>
+      </li>
     </nav>
   );
 };
