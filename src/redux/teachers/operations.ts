@@ -1,19 +1,40 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { get, ref } from 'firebase/database';
+import {
+  get,
+  limitToFirst,
+  orderByKey,
+  query,
+  ref,
+  startAfter,
+} from 'firebase/database';
 import { database } from '../../services/firebase';
 import { TeacherTypes } from '../../types/teacher';
 
 export const fetchTeachers = createAsyncThunk<
   TeacherTypes[],
-  void,
+  { page: number; limit: number },
   { rejectValue: { message: string } }
->('teachers/fetchTeachers', async (_, { rejectWithValue }) => {
+>('teachers/fetchTeachers', async ({ page, limit }, { rejectWithValue }) => {
   try {
-    const dbRef = ref(database, 'teachers');
-    const snapshot = await get(dbRef);
+    const dbRef = ref(database);
+    console.log('dbRef', dbRef);
+
+    const offset = (page - 1) * limit;
+
+    const teachersQuery = query(
+      dbRef,
+      orderByKey(),
+      startAfter(offset.toString()),
+      limitToFirst(limit)
+    );
+
+    const snapshot = await get(teachersQuery);
+
+    console.log('snapshot', snapshot.val(), snapshot.key, snapshot.ref.toString());
 
     if (snapshot.exists()) {
-      return snapshot.val();
+      const teachersArray: TeacherTypes[] = Object.values(snapshot.val());
+      return teachersArray;
     } else {
       throw new Error('No data available');
     }

@@ -6,12 +6,14 @@ interface TeachersStateTypes {
   list: TeacherTypes[];
   loading: boolean;
   error: string | null;
+  hasMore: boolean;
 }
 
 const initialState: TeachersStateTypes = {
   list: [],
   loading: false,
   error: null,
+  hasMore: true,
 };
 
 const teachersSlice = createSlice({
@@ -28,16 +30,28 @@ const teachersSlice = createSlice({
         fetchTeachers.fulfilled,
         (state, action: PayloadAction<TeacherTypes[]>) => {
           state.loading = false;
+
+          if (action.payload.length === 0) {
+            state.hasMore = false;
+          } else {
+            const uniqueTeachers = action.payload.filter((newTeacher) => {
+              return !state.list.some(
+                (existingTeacher) =>
+                  existingTeacher.name === newTeacher.name &&
+                  existingTeacher.surname === newTeacher.surname
+              );
+            });
+
+            state.list = [...state.list, ...uniqueTeachers];
+          }
+
           state.list = action.payload;
         }
       )
-      .addCase(
-        fetchTeachers.rejected,
-        (state, action) => {
-          state.loading = false;
-          state.error = action.payload?.message || 'Unknown error';
-        }
-      );
+      .addCase(fetchTeachers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload?.message || 'Unknown error';
+      });
   },
 });
 
