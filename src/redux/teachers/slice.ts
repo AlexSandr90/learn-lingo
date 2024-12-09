@@ -45,7 +45,6 @@ const teachersSlice = createSlice({
             state.list = [...state.list, ...uniqueTeachers];
           }
 
-          state.list = action.payload;
         }
       )
       .addCase(fetchTeachers.rejected, (state, action) => {

@@ -10,7 +10,7 @@ const Button = ({
 }: {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   ariaLabel?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
@@ -18,7 +18,7 @@ const Button = ({
   return (
     <button
       type={type}
-      onClick={onClick}
+      onClick={(event) => onClick && onClick(event)}
       disabled={disabled}
       className={`${css.button} ${className ? className : ''}`}
       aria-label={ariaLabel ? ariaLabel : 'button'}

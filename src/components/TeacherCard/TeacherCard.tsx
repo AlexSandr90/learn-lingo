@@ -8,10 +8,13 @@ import TeacherList from '../TeacherList/TeacherList';
 import Button from '../Button/Button';
 import BookTrialLessonForm from '../Form/BookTrialLessonForm';
 
-const TeacherCard: React.FC<TeacherTypes> = (teacher) => {
+interface TeacherCardProps {
+  teacher: TeacherTypes;
+}
+
+const TeacherCard: React.FC<TeacherCardProps> = React.memo(({ teacher }) => {
   const {
     name,
-    rating,
     levels,
     surname,
     reviews,
@@ -20,8 +23,6 @@ const TeacherCard: React.FC<TeacherTypes> = (teacher) => {
     avatar_url,
     experience,
     lesson_info,
-    price_per_hour,
-    lessons_done,
   } = teacher;
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
 
@@ -37,13 +38,7 @@ const TeacherCard: React.FC<TeacherTypes> = (teacher) => {
       </div>
 
       <div className={css.teachers__info}>
-        <TeacherRates
-          name={name}
-          price={price_per_hour}
-          rating={rating}
-          surname={surname}
-          lessonsDone={lessons_done}
-        />
+        <TeacherRates {...teacher} />
 
         <div className={`flex-1 space-y-4 ${css.teacher__conditions}`}>
           <TeacherList
@@ -75,6 +70,6 @@ const TeacherCard: React.FC<TeacherTypes> = (teacher) => {
       </div>
     </li>
   );
-};
+});
 
 export default TeacherCard;

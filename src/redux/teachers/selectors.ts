@@ -1,6 +1,12 @@
 import { RootState } from '../store';
+import { createSelector } from 'reselect';
 
-export const selectTeachers = (state: RootState) => state.teachers.list;
+const selectTeachersState = (state: RootState) => state.teachers.list;
+
+export const selectTeachers = createSelector(
+  [selectTeachersState],
+  (teachersState) => teachersState
+);
 export const selectLoadingTeachers = (state: RootState) =>
   state.teachers.loading;
 export const selectErrorTeachers = (state: RootState) => state.teachers.error;
