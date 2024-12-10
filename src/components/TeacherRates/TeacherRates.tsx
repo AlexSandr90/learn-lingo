@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import icons from '../../images/icons.svg';
 import { toggleFavorite } from '../../redux/favorites/operations';
 import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
@@ -6,10 +6,11 @@ import { TeacherTypes } from '../../types/teacher';
 import css from './TeacherRates.module.scss';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/firebase';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 
 const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   const { name, surname, lessons_done, rating, price_per_hour } = teacher;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const favorites = useSelector(selectFavoritesTeachers);
   const [user] = useAuthState(auth);
   const uniqueKey = `${name}_${surname}`;
