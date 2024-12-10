@@ -1,14 +1,17 @@
+import { useDispatch, useSelector } from 'react-redux';
 import icons from '../../images/icons.svg';
 import { toggleFavorite } from '../../redux/favorites/operations';
 import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
 import { TeacherTypes } from '../../types/teacher';
 import css from './TeacherRates.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../services/firebase';
 
 const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   const { name, surname, lessons_done, rating, price_per_hour } = teacher;
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavoritesTeachers);
+  const [user] = useAuthState(auth);
   const uniqueKey = `${name}_${surname}`;
 
   const isFavorite = favorites.some(
@@ -60,7 +63,7 @@ const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
 
         <svg
           className={`${css.heart} ${
-            isFavorite ? css.heart_like : css.heart_regular
+            user && isFavorite ? css.heart_like : css.heart_regular
           }`}
           onClick={handleFavoritesClick}
         >
