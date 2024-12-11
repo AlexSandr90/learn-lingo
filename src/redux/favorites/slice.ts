@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { toggleFavorite } from './operations';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TeacherTypes } from '../../types/teacher';
 
 interface FavoritesStateTypes {
@@ -17,35 +16,26 @@ const initialState: FavoritesStateTypes = {
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(toggleFavorite.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(toggleFavorite.fulfilled, (state, action) => {
-        state.loading = false;
-        const teacher = action.payload;
-        const uniqueKey = `${teacher.name}_${teacher.surname}`;
-
-        const exists = state.list.some(
-          (item) => `${item.name}_${item.surname}` === uniqueKey
+  reducers: {
+    toggleFavorite(state, action: PayloadAction<TeacherTypes>) {
+      const teacher = action.payload;
+      const uniqueKey = `${teacher.name}_${teacher.surname}`;
+      const exists = state.list.some(
+        (item) => `${item.name}_${item.surname}` === uniqueKey
+      );
+      if (exists) {
+        state.list = state.list.filter(
+          (item) => `${item.name}_${item.surname}` !== uniqueKey
         );
+      } else {
+        state.list.push(teacher);
 
-        if (exists) {
-          state.list = state.list.filter(
-            (item) => `${item.name}_${item.surname}` !== uniqueKey
-          );
-        } else {
-          state.list.push(teacher);
-        }
-      })
-      .addCase(toggleFavorite.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload?.message || 'Failed to toggle favorite';
-      });
+        console.log("state.list: ", state.list);
+        
+      }
+    },
   },
 });
 
+export const { toggleFavorite } = favoritesSlice.actions;
 export default favoritesSlice.reducer;

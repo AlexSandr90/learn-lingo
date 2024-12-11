@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
-import icons from '../../images/icons.svg';
-import { toggleFavorite } from '../../redux/favorites/operations';
-import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
-import { TeacherTypes } from '../../types/teacher';
-import css from './TeacherRates.module.scss';
 import { useAuthState } from 'react-firebase-hooks/auth';
+
+import css from './TeacherRates.module.scss';
+import icons from '../../images/icons.svg';
 import { auth } from '../../services/firebase';
+import { TeacherTypes } from '../../types/teacher';
+import { toggleFavorite } from '../../redux/favorites/slice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
 
 const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   const { name, surname, lessons_done, rating, price_per_hour } = teacher;
@@ -20,7 +21,9 @@ const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   );
 
   const handleFavoritesClick = () => {
-    dispatch(toggleFavorite(teacher));
+    if (user) {
+      dispatch(toggleFavorite({ ...teacher }));
+    }
   };
 
   return (
