@@ -3,6 +3,7 @@ import css from './App.module.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const FavoritesPage = lazy(
@@ -20,6 +21,7 @@ const App = () => {
       }`}
     >
       <Suspense fallback={null}>
+        <Toaster />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
