@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import toast from 'react-hot-toast';
 
 import css from './TeacherRates.module.scss';
 import icons from '../../images/icons.svg';
@@ -9,6 +8,7 @@ import { TeacherTypes } from '../../types/teacher';
 import { toggleFavorite } from '../../redux/favorites/slice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
+import { showErrorToast } from '../../utils/errorMessages';
 
 const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   const { name, surname, lessons_done, rating, price_per_hour } = teacher;
@@ -25,14 +25,9 @@ const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
     if (user) {
       dispatch(toggleFavorite({ ...teacher }));
     } else {
-      toast.error('Only authorized users can add teachers to their favorites', {
-        duration: 2000,
-        position: 'top-right',
-        style: {
-          backgroundColor: 'tomato',
-          color: 'white',
-        },
-      });
+      showErrorToast(
+        'Only authorized users can add teachers to their favorites'
+      );
     }
   };
 

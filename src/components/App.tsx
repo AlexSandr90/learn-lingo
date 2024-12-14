@@ -3,7 +3,7 @@ import css from './App.module.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
-import { Toaster } from 'react-hot-toast';
+import { ToastContainer } from 'react-toastify';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const FavoritesPage = lazy(
@@ -15,28 +15,30 @@ const App = () => {
   const { pathname } = useLocation();
 
   return (
-    <main
-      className={`${css.container} ${
-        pathname === '/' ? css.main_page__bg : css.other_pages_bg
-      }`}
-    >
-      <Suspense fallback={null}>
-        <Toaster />
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/teachers" element={<TeachersPage />} />
-          <Route
-            path="/favorites"
-            element={
-              <ProtectedRoute>
-                <FavoritesPage />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </Suspense>
-    </main>
+    <>
+      <ToastContainer />
+      <main
+        className={`${css.container} ${
+          pathname === '/' ? css.main_page__bg : css.other_pages_bg
+        }`}
+      >
+        <Suspense fallback={null}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/teachers" element={<TeachersPage />} />
+            <Route
+              path="/favorites"
+              element={
+                <ProtectedRoute>
+                  <FavoritesPage />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
+      </main>
+    </>
   );
 };
 

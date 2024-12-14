@@ -14,6 +14,11 @@
   background-color: var(--thirty-bg);
 }
 
+.Toastify__toast-icon svg {
+  width: 24px !important; /* або будь-яке потрібне значення */
+  height: 24px !important;
+}
+
 /* @media screen and (min-width: 768px) {
   .container {
     width: 768px;

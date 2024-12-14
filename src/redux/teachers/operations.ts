@@ -30,8 +30,6 @@ export const fetchTeachers = createAsyncThunk<
 
     const snapshot = await get(teachersQuery);
 
-    console.log('snapshot', snapshot.val(), snapshot.key, snapshot.ref.toString());
-
     if (snapshot.exists()) {
       const teachersArray: TeacherTypes[] = Object.values(snapshot.val());
       return teachersArray;
