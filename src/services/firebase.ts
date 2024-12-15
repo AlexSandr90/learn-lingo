@@ -13,6 +13,9 @@ const {
   VITE_MESSAGING_SENDER_ID,
 } = import.meta.env;
 
+console.log("import.meta.env: ", import.meta.env);
+
+
 const firebaseConfig = {
   apiKey: VITE_API_KEY,
   authDomain: VITE_AUTH_DOMAIN,
