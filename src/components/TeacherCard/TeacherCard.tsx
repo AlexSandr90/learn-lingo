@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
+import css from './TeacherCard.module.scss';
 import { TeacherTypes } from '../../types/teacher';
 import TeacherRates from '../TeacherRates/TeacherRates';
-import css from './TeacherCard.module.scss';
 import Reviews from '../Reviews/Reviews';
 import LangLevels from '../LangLevels/LangLevels';
 import TeacherList from '../TeacherList/TeacherList';
@@ -25,6 +26,11 @@ const TeacherCard: React.FC<TeacherCardProps> = React.memo(({ teacher }) => {
     lesson_info,
   } = teacher;
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
+  const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
+
+  const handleReadMore = () => {
+    setIsReadMoreOpen(true);
+  };
 
   const handleBook = () => {
     setIsBookModalOpen(true);
@@ -48,15 +54,26 @@ const TeacherCard: React.FC<TeacherCardProps> = React.memo(({ teacher }) => {
             experience={experience}
           />
 
-          <Reviews reviews={reviews} />
+          {!isReadMoreOpen && (
+            <Button className={css.read_more__btn} onClick={handleReadMore}>
+              Read more
+            </Button>
+          )}
+
+          {isReadMoreOpen && (
+            <>
+              <p className={css.teacher__cover_text}>{experience}</p>
+              <Reviews reviews={reviews} />
+            </>
+          )}
 
           <LangLevels levels={levels} />
 
-          <div className="border-t border-gray-200 my-4" />
-
-          <Button className={css.button} onClick={handleBook}>
-            Book trial lesson
-          </Button>
+          {isReadMoreOpen && (
+            <Button className={css.button} onClick={handleBook}>
+              Book trial lesson
+            </Button>
+          )}
 
           {isBookModalOpen && (
             <BookTrialLessonForm

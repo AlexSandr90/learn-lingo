@@ -4,13 +4,11 @@ interface TeacherListProps {
   languages: string[];
   lessonInfo: string;
   conditions: string[];
-  experience: string;
 }
 
 const TeacherList: React.FC<TeacherListProps> = ({
   languages,
   conditions,
-  experience,
   lessonInfo,
 }) => {
   return (
@@ -31,8 +29,6 @@ const TeacherList: React.FC<TeacherListProps> = ({
           <span className={css.item__value}>{conditions.join(', ')}</span>
         </li>
       </ul>
-
-      <p className={css.teacher__cover_text}>{experience}</p>
     </div>
   );
 };

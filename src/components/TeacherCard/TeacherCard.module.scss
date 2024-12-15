@@ -38,8 +38,32 @@
   align-items: flex-start;
 }
 
+.read_more__btn {
+  color: #121417;
+  // font-family: Roboto;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  color: var(--black);
+}
+
+.teacher__cover_text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+
 .button {
   padding: 16px 48px;
+  margin-top: 32px;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
