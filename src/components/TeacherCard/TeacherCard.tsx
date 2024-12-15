@@ -51,7 +51,6 @@ const TeacherCard: React.FC<TeacherCardProps> = React.memo(({ teacher }) => {
             languages={languages}
             lessonInfo={lesson_info}
             conditions={conditions}
-            experience={experience}
           />
 
           {!isReadMoreOpen && (
