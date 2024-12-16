@@ -1,12 +1,10 @@
 import css from './Logo.module.css';
-import icons from '../../images/icons.svg';
+import LogoIcon from '../../images/LogoIcon';
 
 const Logo = () => {
   return (
     <a href="/" className={css.logo_block}>
-      <svg className={css.logo}>
-        <use href={`${icons}#logo`} />
-      </svg>
+      <LogoIcon className={css.logo} />
       <span className={css.logo_text}>LearnLingo</span>
     </a>
   );
