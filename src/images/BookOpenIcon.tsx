@@ -4,8 +4,6 @@ import { SvgIconPropTypes } from '../types/SvgIconPropTypes';
 const BookOpenIcon: React.FC<SvgIconPropTypes> = ({
   width = 32,
   height = 32,
-  color1 = '#ffda44',
-  color2 = '#338af3',
   className = '',
 }) => {
   return (

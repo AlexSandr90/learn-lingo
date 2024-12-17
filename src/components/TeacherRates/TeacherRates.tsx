@@ -45,10 +45,6 @@ const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
         <ul className={css.teachers__rates}>
           <li className={`${css.teacher__rates_item} ${css.icon_item}`}>
             <BookOpenIcon className={`${css.svg_icon} ${css.book}`} />
-            {/* <svg className={`${css.svg_icon} ${css.book}`}>
-              <use href={`${icons}#book-open`} />
-            </svg> */}
-
             <span className={css.label}>Lessons online</span>
           </li>
 
