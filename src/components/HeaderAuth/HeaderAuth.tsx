@@ -1,12 +1,13 @@
-import css from './HeaderAuth.module.scss';
-import icons from '../../images/icons.svg';
-import Button from '../Button/Button';
-import { useEffect, useState } from 'react';
-import RegisterForm from '../Form/RegisterForm';
-import LoginForm from '../Form/LoginForm';
-import { auth } from '../../services/firebase';
 import { signOut } from 'firebase/auth';
 import { BiLogOut } from 'react-icons/bi';
+import { useEffect, useState } from 'react';
+
+import css from './HeaderAuth.module.scss';
+import { auth } from '../../services/firebase';
+import Button from '../Button/Button';
+import LoginForm from '../Form/LoginForm';
+import LoginIcon from '../../images/LoginIcon';
+import RegisterForm from '../Form/RegisterForm';
 
 const HeaderAuth = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -38,9 +39,7 @@ const HeaderAuth = () => {
             className={css.login}
             onClick={() => setIsLoginModalOpen(true)}
           >
-            <svg className={css.login_icon}>
-              <use href={`${icons}#log-in`} />
-            </svg>
+            <LoginIcon className={css.login_icon} />
             Log in
           </Button>
 
