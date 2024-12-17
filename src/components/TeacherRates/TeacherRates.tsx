@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import css from './TeacherRates.module.scss';
-import icons from '../../images/icons.svg';
 import { auth } from '../../services/firebase';
 import { TeacherTypes } from '../../types/teacher';
 import { toggleFavorite } from '../../redux/favorites/slice';
@@ -11,6 +10,7 @@ import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
 import { showErrorToast } from '../../utils/errorMessages';
 import BookOpenIcon from '../../images/BookOpenIcon';
 import HeartIcon from '../../images/HeartIcon';
+import StarIcon from '../../images/StarIcon';
 
 const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   const { name, surname, lessons_done, rating, price_per_hour } = teacher;
@@ -54,9 +54,7 @@ const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
           </li>
 
           <li className={`${css.teacher__rates_item} ${css.icon_item}`}>
-            <svg className={css.svg_icon}>
-              <use href={`${icons}#star`} />
-            </svg>
+            <StarIcon className={css.svg_icon} />
 
             <span className={css.label}>Rating: {rating}</span>
           </li>
