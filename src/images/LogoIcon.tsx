@@ -1,14 +1,7 @@
 import React from 'react';
+import { SvgIconPropTypes } from '../types/SvgIconPropTypes';
 
-type LogoIconProps = {
-  width?: number;
-  height?: number;
-  color1?: string;
-  color2?: string;
-  className?: string;
-};
-
-const LogoIcon: React.FC<LogoIconProps> = ({
+const LogoIcon: React.FC<SvgIconPropTypes> = ({
   width = 32,
   height = 32,
   color1 = '#ffda44',

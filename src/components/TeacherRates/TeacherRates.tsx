@@ -9,6 +9,7 @@ import { toggleFavorite } from '../../redux/favorites/slice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
 import { showErrorToast } from '../../utils/errorMessages';
+import BookOpenIcon from '../../images/BookOpenIcon';
 
 const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   const { name, surname, lessons_done, rating, price_per_hour } = teacher;
@@ -43,9 +44,10 @@ const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
       <div className={css.stats_block}>
         <ul className={css.teachers__rates}>
           <li className={`${css.teacher__rates_item} ${css.icon_item}`}>
-            <svg className={`${css.svg_icon} ${css.book}`}>
+            <BookOpenIcon className={`${css.svg_icon} ${css.book}`} />
+            {/* <svg className={`${css.svg_icon} ${css.book}`}>
               <use href={`${icons}#book-open`} />
-            </svg>
+            </svg> */}
 
             <span className={css.label}>Lessons online</span>
           </li>
