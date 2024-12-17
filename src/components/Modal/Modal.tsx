@@ -1,7 +1,7 @@
 import css from './Modal.module.scss';
 import ReactModal from 'react-modal';
-import icons from '../../images/icons.svg';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
+import CloseIcon from '../../images/CloseIcon';
 
 ReactModal.setAppElement('#root');
 
@@ -13,7 +13,7 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ children, isOpen, setState }) => {
   if (!isOpen) return null;
-  
+
   return (
     <ReactModal
       isOpen={isOpen}
@@ -25,9 +25,7 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, setState }) => {
     >
       <div className={css.modalContent}>
         <button className={css.closeButton} onClick={() => setState(false)}>
-          <svg className={css.icon}>
-            <use href={`${icons}#close`} />
-          </svg>
+          <CloseIcon className={css.icon} />
         </button>
         {children}
       </div>

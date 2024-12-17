@@ -40,7 +40,6 @@ const LoginForm: React.FC<ModalTriggerProps> = ({
       const refreshToken = user.refreshToken;
 
       dispatch(setTokens({ accessToken: idToken, refreshToken }));
-      console.log('user logged in: ', user);
       setModalState(false);
     } catch (error) {
       console.log('Login error', error);

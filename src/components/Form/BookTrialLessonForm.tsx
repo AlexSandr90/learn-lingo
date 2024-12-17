@@ -45,13 +45,11 @@ const BookTrialLessonForm: React.FC<ModalTriggerProps & ModalTeacherProps> = ({
       teacher: { fullName, avatarUrl },
       createdAt: new Date().toISOString(),
     };
-    console.log('bookingData: ', bookingData);
 
     const bookingId = `${fullName} ${Date.now()}`;
 
     saveBooking(bookingId, bookingData)
       .then(() => {
-        console.log('Booking saved successfully');
         setModalState(false);
       })
       .catch((error) => {
@@ -61,8 +59,6 @@ const BookTrialLessonForm: React.FC<ModalTriggerProps & ModalTeacherProps> = ({
       .finally(() => {
         setIsSubmitting(false);
       });
-
-    console.log('first');
   };
 
   return (

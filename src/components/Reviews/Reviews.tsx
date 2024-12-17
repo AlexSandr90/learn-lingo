@@ -1,7 +1,7 @@
 import { Review } from '../../types/teacher';
 import css from './Reviews.module.css';
-import icons from '../../images/icons.svg';
 import { getRandomColor } from '../../utils/getRandomColor';
+import StarIcon from '../../images/StarIcon';
 
 interface ReviewsProps {
   reviews: Review[];
@@ -31,9 +31,7 @@ const Reviews: React.FC<ReviewsProps> = ({ reviews }) => {
             <div className={css.rate__name}>
               <span className={css.name}>{review.reviewer_name}</span>
               <div className={css.rate}>
-                <svg className={css.svg_icon}>
-                  <use href={`${icons}#star`} />
-                </svg>
+                <StarIcon className={css.svg_icon} />
                 {review.reviewer_rating.toFixed(1)}
               </div>
             </div>
