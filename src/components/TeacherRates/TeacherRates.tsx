@@ -10,6 +10,7 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { selectFavoritesTeachers } from '../../redux/favorites/selectors';
 import { showErrorToast } from '../../utils/errorMessages';
 import BookOpenIcon from '../../images/BookOpenIcon';
+import HeartIcon from '../../images/HeartIcon';
 
 const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
   const { name, surname, lessons_done, rating, price_per_hour } = teacher;
@@ -68,14 +69,12 @@ const TeacherRates: React.FC<TeacherTypes> = (teacher) => {
           </li>
         </ul>
 
-        <svg
+        <HeartIcon
           className={`${css.heart} ${
             user && isFavorite ? css.heart_like : css.heart_regular
           }`}
           onClick={handleFavoritesClick}
-        >
-          <use href={`${icons}#heart`} />
-        </svg>
+        />
       </div>
     </div>
   );

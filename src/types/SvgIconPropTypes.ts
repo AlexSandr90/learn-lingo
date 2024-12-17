@@ -4,4 +4,5 @@ export type SvgIconPropTypes = {
   color1?: string;
   color2?: string;
   className?: string;
+  onClick?: () => void;
 };
