@@ -5,7 +5,6 @@ const StarIcon: React.FC<SvgIconPropTypes> = ({
   width = 32,
   height = 32,
   color1 = '#ffc531',
-  color2 = '#338af3',
   className = '',
 }) => {
   return (
