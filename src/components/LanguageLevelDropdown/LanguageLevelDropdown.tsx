@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import css from './LanguageLevelDropdown.module.scss';
 import { languageLevelOptions } from '../../utils/dropdownOptions';
+import { DropdownProps } from '../../types/filterTypes';
 
-const LanguageLevelDropdown: React.FC = () => {
-  const [languageLevel, setLanguageLevel] = useState('A1 Beginner');
-
+const LanguageLevelDropdown: React.FC<DropdownProps> = ({
+  selectedValue,
+  onSelectValue,
+}) => {
   const handleLanguageLevelSelect = (value: string) => {
-    setLanguageLevel(value);
+    onSelectValue(value);
   };
   return (
     <Dropdown
       label="Level of knowledge"
       options={languageLevelOptions}
-      selectedValue={languageLevel}
+      selectedValue={selectedValue}
       onSelect={handleLanguageLevelSelect}
       containerClassName={css.level}
     />

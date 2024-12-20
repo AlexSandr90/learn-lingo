@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import css from './PriceDropdown.module.scss';
 import { priceOptions } from '../../utils/dropdownOptions';
+import { DropdownProps } from '../../types/filterTypes';
 
-const PriceDropdown: React.FC = () => {
-  const [price, setPrice] = useState('30');
-
+const PriceDropdown: React.FC<DropdownProps> = ({
+  selectedValue,
+  onSelectValue,
+}) => {
   const handlePriceSelect = (value: string) => {
-    setPrice(value);
+    onSelectValue(value);
   };
 
   return (
     <Dropdown
       label="Price"
       options={priceOptions}
-      selectedValue={price}
+      selectedValue={selectedValue}
       onSelect={handlePriceSelect}
       containerClassName={css.price}
     />

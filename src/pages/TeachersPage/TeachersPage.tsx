@@ -12,6 +12,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { fetchTeachers } from '../../redux/teachers/operations';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import TeacherCard from '../../components/TeacherCard/TeacherCard';
+import { FilterTypes } from '../../types/filterTypes';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
@@ -20,10 +21,15 @@ const TeachersPage = () => {
   const error = useSelector(selectErrorTeachers);
   const isHasMore = useSelector(selectHasMoreTeachers);
   const [page, setPage] = useState(1);
+  const [filters, setFilters] = useState<FilterTypes>({
+    language: '',
+    level: '',
+    price: '',
+  });
 
   useEffect(() => {
-    dispatch(fetchTeachers({ page, limit: 4 }));
-  }, [dispatch, page]);
+    dispatch(fetchTeachers({ page, limit: 4, ...filters }));
+  }, [dispatch, page, filters]);
 
   const loadMore = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -41,17 +47,18 @@ const TeachersPage = () => {
     ));
   }, [teachers]);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
+  const onChangeFilters = (newFilters: FilterTypes) => {
+    console.log("newFilters: ", newFilters);
+    
+    setFilters(newFilters);
+    setPage(1);
+  };
 
   return (
     <section className={css.teachers_block}>
-      <Filters />
+      <Filters onChangeFilters={onChangeFilters} />
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
       <ul className={css.teachers_list}>{renderList}</ul>
       <Button className={css.button} onClick={loadMore} type="button">
         Load more
