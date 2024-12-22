@@ -1,74 +1,51 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   get,
-  ref,
-  query,
-  equalTo,
-  orderByChild,
   limitToFirst,
+  orderByKey,
+  query,
+  ref,
+  startAfter,
 } from 'firebase/database';
 import { database } from '../../services/firebase';
 import { TeacherTypes } from '../../types/teacher';
 
 export const fetchTeachers = createAsyncThunk<
   TeacherTypes[],
-  {
-    page: number;
-    limit: number;
-    language?: string;
-    level?: string;
-    price?: string;
-  },
+  { page: number; limit: number },
   { rejectValue: { message: string } }
->(
-  'teachers/fetchTeachers',
-  async ({ page, limit, language, level, price }, { rejectWithValue }) => {
-    try {
-      const dbRef = ref(database, 'teachers');
+>('teachers/fetchTeachers', async ({ page, limit }, { rejectWithValue }) => {
+  try {
+    const dbRef = ref(database, 'teachers');
 
-      const startIndex = (page - 1) * limit;
+    const offset = (page - 1) * limit;
 
-      let teachersQuery = query(dbRef, limitToFirst(startIndex + limit));
+    const teachersQuery = query(
+      dbRef,
+      orderByKey(),
+      startAfter(offset.toString()),
+      limitToFirst(limit)
+    );
 
-      if (language) {
-        teachersQuery = query(
-          teachersQuery,
-          orderByChild('languages'),
-          equalTo(language)
-        );
-      }
+    const snapshot = await get(teachersQuery);
 
-      if (level) {
-        teachersQuery = query(
-          teachersQuery,
-          orderByChild('levels'),
-          equalTo(level)
-        );
-      }
+    console.log(
+      'snapshot',
+      snapshot.val(),
+      snapshot.key,
+      snapshot.ref.toString()
+    );
 
-      if (price) {
-        teachersQuery = query(
-          teachersQuery,
-          orderByChild('price_per_hour'),
-          equalTo(Number(price))
-        );
-      }
-
-      const snapshot = await get(teachersQuery);
-
-      if (!snapshot.exists()) {
-        throw new Error('No data available');
-      }
-
+    if (snapshot.exists()) {
       const teachersArray: TeacherTypes[] = Object.values(snapshot.val());
-      console.log('teachersArray: ', teachersArray);
-
       return teachersArray;
-    } catch (error) {
-      console.error('Error fetching teachers: ', error);
-      return rejectWithValue({
-        message: 'Failed to fetch teachers data',
-      });
+    } else {
+      throw new Error('No data available');
     }
+  } catch (error) {
+    console.error('Error fetching teachers: ', error);
+    return rejectWithValue({
+      message: 'Failed to fetch teachers data',
+    });
   }
-);
+});

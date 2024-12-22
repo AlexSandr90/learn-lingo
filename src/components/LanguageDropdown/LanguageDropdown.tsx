@@ -9,8 +9,6 @@ const LanguageDropdown: React.FC<DropdownProps> = ({
   onSelectValue,
 }) => {
   const handleLanguageSelect = (value: string) => {
-    console.log("value: ", value);
-    
     onSelectValue(value);
   };
   return (
