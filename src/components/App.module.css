@@ -15,18 +15,6 @@
 }
 
 .Toastify__toast-icon svg {
-  width: 24px !important; /* або будь-яке потрібне значення */
+  width: 24px !important;
   height: 24px !important;
 }
-
-/* @media screen and (min-width: 768px) {
-  .container {
-    width: 768px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .container {
-    width: 1440px;
-  }
-} */

@@ -1,12 +1,12 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { ModalTriggerProps } from '../../types/modalTriggerTypes';
 import Modal from '../Modal/Modal';
 import css from './Form.module.scss';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { bookTrialSchema } from '../../validation/authSchemes';
 import Button from '../Button/Button';
 import { saveBooking } from '../../services/firebaseService';
-import { useState } from 'react';
 
 interface BookTrialData {
   name: string;

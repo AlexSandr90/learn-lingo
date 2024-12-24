@@ -1,19 +1,21 @@
 import css from './Button.module.scss';
 
-const Button = ({
-  children,
-  className,
-  onClick,
-  ariaLabel,
-  type = 'button',
-  disabled = false,
-}: {
+interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   ariaLabel?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({
+  children,
+  className,
+  onClick,
+  ariaLabel,
+  type = 'button',
+  disabled = false,
 }) => {
   return (
     <button

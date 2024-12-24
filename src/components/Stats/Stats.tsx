@@ -6,11 +6,11 @@ const Stats = () => {
     <div className={css.stats_block}>
       <ul className={css.stats}>
         <li className={css.stats_item}>
-          <NumberDisplay value={32000} additionValue='+' />
+          <NumberDisplay value={32000} additionValue="+" />
           <span className={css.stats_item__legend}>Experienced tutors</span>
         </li>
         <li className={css.stats_item}>
-          <NumberDisplay value={300000} additionValue='+' />
+          <NumberDisplay value={300000} additionValue="+" />
           <span className={css.stats_item__legend}>5-star tutor reviews</span>
         </li>
         <li className={css.stats_item}>

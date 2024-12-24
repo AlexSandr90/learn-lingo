@@ -1,9 +1,10 @@
 import { lazy, Suspense } from 'react';
+import { ToastContainer } from 'react-toastify';
+
 import css from './App.module.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
-import { ToastContainer } from 'react-toastify';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const FavoritesPage = lazy(

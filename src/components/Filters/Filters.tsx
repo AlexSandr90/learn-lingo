@@ -25,9 +25,6 @@ const Filters: React.FC<FiltersProps> = ({ onChangeFilters }) => {
     const updateFilters = { ...filters, [name]: value };
     setFilters(updateFilters);
     onChangeFilters(updateFilters);
-
-    console.log("filters: ", filters);
-    
   };
 
   return (

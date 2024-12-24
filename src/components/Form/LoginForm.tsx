@@ -1,13 +1,14 @@
-import css from './Form.module.scss';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
+import css from './Form.module.scss';
 import Button from '../Button/Button';
 import { loginSchema } from '../../validation/authSchemes';
 import Modal from '../Modal/Modal';
 import { ModalTriggerProps } from '../../types/modalTriggerTypes';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase';
-import { useDispatch } from 'react-redux';
 import { setTokens } from '../../redux/auth/slice';
 
 interface LoginData {
