@@ -1,5 +1,5 @@
 import Button from '../Button/Button';
-import css from './CallToAction.module.css';
+import css from './CallToAction.module.scss';
 
 const CallToAction = () => {
   return (

@@ -1,23 +1,22 @@
 .wrap {
-    display: flex;
-    flex-direction: column;
-    width: 720px;
-    height: 530px;
-    border-radius: 30px;
-    background-color: var(--thirty-bg);
-    padding: 98px 64px;
-    box-sizing: border-box
-}
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  height: 530px;
+  border-radius: 30px;
+  background-color: var(--thirty-bg);
+  padding: 98px 64px;
+  box-sizing: border-box;
 
-.wrap h1 {
+  h1 {
     color: var(--primary-color);
     font-size: 48px;
     font-weight: 500;
     line-height: 116.667%;
     letter-spacing: -0.96px;
-}
+  }
 
-.wrap span {
+  span {
     color: var(--primary-color);
     font-size: 48px;
     font-style: italic;
@@ -25,9 +24,9 @@
     line-height: 56px;
     letter-spacing: -0.96px;
     background-color: var(--secondary-bg);
-}
+  }
 
-.wrap p {
+  p {
     width: 471px;
     color: var(--primary-color);
     font-size: 16px;
@@ -35,21 +34,23 @@
     line-height: 137.5%;
     letter-spacing: -0.32px;
     padding-top: 32px;
+  }
 }
 
 .button {
-    width: 267px;
-    height: 60px;
-    margin-top: 64px;
-    padding: 16px 39px;
-    background-color: var(--main-bg);
-    color: var(--primary-color);
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 155.556%;
-    transition: background-color ease-in-out 300ms;
-}
+  width: 267px;
+  height: 60px;
+  margin-top: 64px;
+  padding: 16px 39px;
+  background-color: var(--main-bg);
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 155.556%;
+  transition: background-color ease-in-out 300ms, color ease-in-out 300ms;
 
-.button:hover {
+  &:hover {
     background-color: var(--hover-bg);
+    color: var(--white);
+  }
 }

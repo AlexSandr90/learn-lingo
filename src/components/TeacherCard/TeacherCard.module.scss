@@ -50,8 +50,14 @@
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
-  
+
   color: var(--black);
+
+  transition: color ease-in-out 300ms;
+
+  &:hover {
+    color: var(--secondary-color);
+  }
 }
 
 .teacher__cover_text {
@@ -75,9 +81,10 @@
 
   color: var(--black);
 
-  transition: background-color ease-in-out 300ms;
+  transition: background-color ease-in-out 300ms, color ease-in-out 300ms;
 
   &:hover {
     background-color: var(--hover-bg);
+    color: var(--white);
   }
 }

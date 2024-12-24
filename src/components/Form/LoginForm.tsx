@@ -78,7 +78,9 @@ const LoginForm: React.FC<ModalTriggerProps> = ({
             Log In
           </Button>
 
-          <Button onClick={handleResetPassword}>Reset password</Button>
+          <Button onClick={handleResetPassword} className={css.resetButton}>
+            Reset password
+          </Button>
         </form>
       </div>
     </Modal>

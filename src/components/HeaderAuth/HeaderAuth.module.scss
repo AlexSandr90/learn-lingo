@@ -15,6 +15,12 @@
   line-height: 1.25;
 
   color: var(--primary-color);
+
+  transition: color ease-in-out 300ms;
+
+  &:hover {
+    color: var(--secondary-color);
+  }
 }
 
 .login_icon {
@@ -40,4 +46,10 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 1.25;
+
+  transition: color ease-in-out 300ms;
+
+  &:hover {
+    color: var(--secondary-color);
+  }
 }
