@@ -8,10 +8,23 @@
   transition: height 300ms ease;
 }
 
-
+.header {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
 
 .teachers_list {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.empty_favorites {
+  font-size: 1.3rem;
+  color: #000;
+}
+
+.link {
+  color: var(--secondary-color);
+  text-decoration: none;
 }

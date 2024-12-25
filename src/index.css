@@ -36,10 +36,6 @@ body {
   text-align: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
 ul,
 ol,
@@ -68,13 +64,6 @@ p {
 
 p:last-child {
   margin-bottom: 0;
-}
-
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 a {
