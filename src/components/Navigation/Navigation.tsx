@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import css from './Navigation.module.css';
+import css from './Navigation.module.scss';
 import { auth } from '../../services/firebase';
 
 const getClassName = ({ isActive }: { isActive: boolean }) => {

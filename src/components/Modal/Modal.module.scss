@@ -22,12 +22,15 @@
   position: relative;
 
   display: flex;
-  width: 566px;
+  min-width: 320px;
+  max-width: 320px;
+  // margin-left: 16px;
+  width: 100%;
   flex-direction: column;
   gap: 40px;
 
   justify-content: center;
-  padding: 64px;
+  padding: 32px;
   background-color: var(--white);
   border-radius: 30px;
 }
@@ -47,4 +50,18 @@
 .icon {
   width: 32px;
   height: 32px;
+}
+
+@media screen and (min-width: 375px) {
+  .modalContent {
+    max-width: 375px;
+  }
+  
+}
+
+@media screen and (min-width: 768px) {
+  .modalContent {
+    max-width: 566px;
+    padding: 64px;
+  }
 }

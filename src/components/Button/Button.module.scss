@@ -6,3 +6,10 @@
     gap: 8px;
     border-radius: 12px;
 }
+
+@media screen and (min-width: 375px) {
+    .button {
+        padding: 16px 39px;
+    }
+    
+}

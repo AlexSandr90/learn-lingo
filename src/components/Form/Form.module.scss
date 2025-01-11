@@ -1,7 +1,8 @@
 .formWrap {
   display: flex;
   flex-direction: column;
-  width: 438px;
+  align-self: center;
+  width: calc(100% - 32px);
 
   h2 {
     font-size: 40px;
@@ -35,7 +36,8 @@ p.bookParagraph {
 
 .input {
   display: flex;
-  width: 438px;
+  max-width: 438px;
+  width: 100%;
   padding: 16px 18px;
   justify-content: center;
   align-items: center;
@@ -57,7 +59,8 @@ p.bookParagraph {
 
 .button {
   display: flex;
-  width: 438px;
+
+  width: 100%;
   padding: 16px 0;
   justify-content: center;
   align-items: center;
@@ -175,4 +178,14 @@ p.bookParagraph {
   font-weight: 500;
   line-height: 150%;
   color: var(--black);
+}
+
+@media screen and (min-width: 768px) {
+  .formWrap {
+    width: 438px;
+  }
+
+  .button {
+    width: 438px;
+  }
 }

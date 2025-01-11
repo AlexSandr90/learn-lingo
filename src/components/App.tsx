@@ -25,18 +25,18 @@ const App = () => {
       >
         <Suspense fallback={null}>
           <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/teachers" element={<TeachersPage />} />
-            <Route
-              path="/favorites"
-              element={
-                <ProtectedRoute>
-                  <FavoritesPage />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
+          {/*<Routes>*/}
+          {/*  <Route path="/" element={<HomePage />} />*/}
+          {/*  <Route path="/teachers" element={<TeachersPage />} />*/}
+          {/*  <Route*/}
+          {/*    path="/favorites"*/}
+          {/*    element={*/}
+          {/*      <ProtectedRoute>*/}
+          {/*        <FavoritesPage />*/}
+          {/*      </ProtectedRoute>*/}
+          {/*    }*/}
+          {/*  />*/}
+          {/*</Routes>*/}
         </Suspense>
       </main>
     </>

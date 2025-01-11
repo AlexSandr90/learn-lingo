@@ -1,8 +1,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 1440px;
-  padding: 0 64px;
+  min-width: 320px;
+  max-width: 768px;
+  padding: 0 16px;
   margin: 0 auto;
 }
 
@@ -17,4 +18,24 @@
 .Toastify__toast-icon svg {
   width: 24px !important;
   height: 24px !important;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+  }
+  
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding: 0 64px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
 }
