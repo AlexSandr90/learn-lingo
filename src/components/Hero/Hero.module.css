@@ -1,7 +1,7 @@
 .hero {
     display: flex;
-    width: 568px;
-    height: 530px;
+    width: 100%;
+    height: calc(100vw * (530 / 568));
     border-radius: 30px;
     background-color: var(--secondary-bg);
     background-image: url('../../images//main-bg.jpg');
@@ -16,4 +16,27 @@
     .hero {
         background-image: url('../../images//main-bg@2.jpg');
     }
+}
+
+@media screen and (min-width: 375px) {
+    .hero {
+        height: 350px;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .hero {
+        /* width: 568px; */
+        height: 530px;
+    }
+
+}
+
+
+@media screen and (min-width: 1440px) {
+    .hero {
+        width: 568px;
+    }
+
 }

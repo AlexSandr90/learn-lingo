@@ -13,7 +13,9 @@ const CallToAction = () => {
         highly qualified and experienced tutors.
       </p>
 
-      <Button ariaLabel='Get started' className={css.button}>Get started</Button>
+      <Button ariaLabel="Get started" className={css.button}>
+        Get started
+      </Button>
     </div>
   );
 };
