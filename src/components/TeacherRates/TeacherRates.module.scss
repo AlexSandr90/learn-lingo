@@ -1,5 +1,6 @@
 .teachers__info_stats {
     display: flex;
+    flex-direction: column;
     align-items: start;
     justify-content: space-between;
 }
@@ -30,13 +31,20 @@
 
 .stats_block {
     display: flex;
-    align-items: center;
-    gap: 64px;
+    width: 100%;
+    
+    flex-direction: column;
+    // align-items: center;
+    // gap: 64px;
+    padding-top: 16px;
 }
 
 .teachers__rates {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    // align-self: center;
+    // align-items: center;
+    justify-content: start;
     gap: 16px;
 }
 
@@ -78,8 +86,13 @@
 
 .heart {
     display: flex;
-    width: 22.645px;
-    height: 19.751px;
+    position: relative;
+    top: -424px;
+    right: -240px;
+    width: 30px;
+    height: 24px;
+    // width: 22.645px;
+    // height: 19.751px;
     stroke-width: 2px;
     cursor: pointer;
 
@@ -105,3 +118,9 @@
     flex-direction: column;
     gap: 32px;
 }
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 1280px) {}
+
+@media screen and (min-width: 1440px) {}

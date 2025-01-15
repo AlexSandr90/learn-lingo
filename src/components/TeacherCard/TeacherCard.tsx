@@ -8,6 +8,7 @@ import LangLevels from '../LangLevels/LangLevels';
 import TeacherList from '../TeacherList/TeacherList';
 import Button from '../Button/Button';
 import BookTrialLessonForm from '../Form/BookTrialLessonForm';
+import clsx from 'clsx';
 
 interface TeacherCardProps {
   teacher: TeacherTypes;
@@ -37,7 +38,10 @@ const TeacherCard: React.FC<TeacherCardProps> = React.memo(({ teacher }) => {
   };
   return (
     <li
-      className={`group p-6 border border-gray-200 rounded-lg bg-white transition-shadow duration-200 hover:shadow-md ${css.teachers_item}`}
+      className={clsx(
+        'group p-6 border border-gray-200 rounded-lg bg-white transition-shadow duration-200 hover:shadow-md',
+        css.teachers_item
+      )}
     >
       <div className={css.avatar}>
         <img src={avatar_url} alt={name} className={css.teacher_img} />
