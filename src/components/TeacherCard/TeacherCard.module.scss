@@ -107,14 +107,16 @@
   }
 }
 
-@media scree and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .teachers_item {
-    width: 1184px;
+    flex-direction: row;
+    width: calc(1280px - 128px);
+    align-self: center;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .teachers_item {
-    // width: 1344px;
+    width: calc(1440px - 128px);
   }
 }

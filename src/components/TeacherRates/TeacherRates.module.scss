@@ -32,18 +32,14 @@
 .stats_block {
     display: flex;
     width: 100%;
-    
+
     flex-direction: column;
-    // align-items: center;
-    // gap: 64px;
     padding-top: 16px;
 }
 
 .teachers__rates {
     display: flex;
     flex-direction: column;
-    // align-self: center;
-    // align-items: center;
     justify-content: start;
     gap: 16px;
 }
@@ -91,8 +87,7 @@
     right: -240px;
     width: 30px;
     height: 24px;
-    // width: 22.645px;
-    // height: 19.751px;
+
     stroke-width: 2px;
     cursor: pointer;
 
@@ -119,8 +114,48 @@
     gap: 32px;
 }
 
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+    .teachers__info_stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        // align-items: center;
+        justify-content: center;
+        row-gap: 16px;
+    }
 
-@media screen and (min-width: 1280px) {}
+    .stats_block,
+    .teachers__rates {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        // gap: 64px;
+        padding-top: 0;
+    }
+
+    .heart {
+        top: -235px;
+        right: -30px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .teachers__info_stats {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        column-gap: 149px;
+    }
+
+    .heart {
+        position: static;
+        bottom: auto;
+        left: auto;
+        width: 23px;
+        height: 20px;
+    }
+
+    .teachers__info_lang {
+        width: 245px;
+    }
+}
 
 @media screen and (min-width: 1440px) {}

@@ -34,14 +34,21 @@
 
 @media screen and (min-width: 768px) {
   .teachers_block {
-    width: calc(768px - 64px);
+    width: calc(768px - 128px);
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .teachers_block {
-    width: calc(1280px - 64px);
+
+  .teachers_block,
+  .teachers_list {
+    width: calc(1280px - 128px);
   }
+
+  .teachers_block {
+    align-items: center;
+  }
+
 }
 
 @media screen and (min-width: 1440px) {
