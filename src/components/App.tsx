@@ -7,10 +7,10 @@ import Header from './Header/Header';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const TeachersPage = lazy(() => import('../pages/TeachersPage/TeachersPage'));
 const FavoritesPage = lazy(
   () => import('../pages/FavoritesPage/FavoritesPage')
 );
-const TeachersPage = lazy(() => import('../pages/TeachersPage/TeachersPage'));
 
 const App = () => {
   const { pathname } = useLocation();

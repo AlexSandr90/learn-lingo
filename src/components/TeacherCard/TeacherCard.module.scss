@@ -111,12 +111,23 @@
   .teachers_item {
     flex-direction: row;
     width: calc(1280px - 128px);
-    align-self: center;
+  }
+
+  .avatar {
+    align-self: start;
+  }
+
+  .teachers__info {
+    max-width: 930px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .teachers_item {
     width: calc(1440px - 128px);
+  }
+
+  .teachers__info {
+    max-width: 1080px;
   }
 }
