@@ -31,36 +31,17 @@ export const getTeachers = async (): Promise<Record<
   }
 };
 
-// export const saveBooking = async (
-//   id: string,
-//   bookingData: object
-// ): Promise<void> => {
-//   console.log('saveBooking called with:', id, bookingData); 
-//   return new Promise((resolve, reject) => {
-//     const db = getDatabase();
-//     const bookingRef = ref(db, `bookings/${id}`);
-//     console.log('Firebase ref created:', bookingRef); 
-//     set(bookingRef, bookingData)
-//       .then(() => {
-//         console.log('Booking saved successfully');
-//         resolve();
-//       })
-//       .catch((error) => {
-//         console.error('Error saving booking:', error);
-//         reject(error);
-//       });
-//   });
-// };
-
-export const saveBooking = async (id: string, bookingData: object): Promise<void> => {
+export const saveBooking = async (
+  id: string,
+  bookingData: object
+): Promise<void> => {
   try {
     const db = getDatabase();
     const bookingRef = ref(db, `booking/${id}`);
-    console.log('Firebase ref created:', bookingRef);
+
     await set(bookingRef, bookingData);
-    console.log('Booking saved successfully');
   } catch (error) {
     console.error('Error saving booking:', error);
-    throw error; // щоб дозволити обробку помилки у виклику
+    throw error;
   }
 };
