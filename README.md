@@ -15,8 +15,8 @@ services with teachers.
   they teach, the proficiency levels of students they work with, and their
   hourly rates. (location, body type, amenities).
 - **Trial Lesson Booking Form**: Provides users with the option to book a trial
-  - **Favorites Page**: A private page where users can view the teachers they
-    have added to their "favorites" list.
+- **Favorites Page**: A private page where users can view the teachers they
+  have added to their "favorites" list.
 
 ## Technology Stack
 
